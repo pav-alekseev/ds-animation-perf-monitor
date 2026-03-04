@@ -1,0 +1,38 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background: #646cff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: sans-serif;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+}
+
+@keyframes bounce-layout {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 300px;
+  }
+}
+.layout-animation {
+  animation: bounce-layout 1s infinite alternate ease-in-out;
+}
+
+@keyframes bounce-composite {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(300px);
+  }
+}
+.composite-animation {
+  animation: bounce-composite 1s infinite alternate ease-in-out;
+  will-change: transform;
+}
