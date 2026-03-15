@@ -1,4 +1,4 @@
-export const countFps = async (duration: number) => {
+export const countFps = async (duration: number): Promise<number> => {
   return new Promise((resolve) => {
     let frameCount = 0;
     const start = performance.now();
