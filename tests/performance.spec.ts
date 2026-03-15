@@ -5,7 +5,7 @@ const TEST_DURATION = 3000;
 
 test.describe("Автоматизированный контроль метрик производительности", () => {
   async function measurePerformance(page: Page, urlId: string, label: string) {
-    await page.goto(`http://localhost:6006/iframe.html?id=${urlId}`);
+    await page.goto(`/iframe.html?id=${urlId}`);
 
     const client = await page.context().newCDPSession(page);
     await client.send("Performance.enable");
