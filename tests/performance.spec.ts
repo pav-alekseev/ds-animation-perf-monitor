@@ -1,6 +1,7 @@
 import { test, expect, Page } from "@playwright/test";
 import { countFps, getMetric } from "./utils";
 
+const CPU_THROTTLING_RATE = 5;
 const TEST_DURATION = 3000;
 
 test.describe("Автоматизированный контроль метрик производительности", () => {
@@ -8,6 +9,9 @@ test.describe("Автоматизированный контроль метри�
     await page.goto(`/iframe.html?id=${urlId}`);
 
     const client = await page.context().newCDPSession(page);
+    await client.send("Emulation.setCPUThrottlingRate", {
+      rate: CPU_THROTTLING_RATE,
+    });
     await client.send("Performance.enable");
 
     const startMetrics = (await client.send("Performance.getMetrics")).metrics;
